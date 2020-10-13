@@ -21,7 +21,7 @@ const requestListener = (req, res) => {
       const parsedBody = Buffer.concat(body).toString();
       console.log(parsedBody)
       const mood = parsedBody.split("=")[1];
-      fs.writeFile("user_mood.txt", mood);
+      fs.writeFile("user_mood.txt", mood, () => {});
       return res.end();
     });
   }
